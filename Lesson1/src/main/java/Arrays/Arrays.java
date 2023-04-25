@@ -35,7 +35,10 @@ public class Arrays {
                 twoDArray[i][j] = (i == j || j == lengthArray - 1 - i) ? 1 : 0;
             }
         }
-        print2DArray(twoDArray);
+        for (int[] i : twoDArray) {
+            System.out.println(java.util.Arrays.toString(i));
+        }
+
 
         //5. ** Задать одномерный массив и найти в нем минимальный и максимальный элементы (без помощи интернета);
         int indexMax = arrayRnd[0];
@@ -57,16 +60,6 @@ public class Arrays {
         System.out.println(java.util.Arrays.toString(shiftArray(new int[]{3, 5, 6, 1}, 3)));
     }
 
-    private static void print2DArray(int[][] array) {
-        int lengthArray = array.length;
-        for (int i = 0; i < lengthArray; i++) {
-            for (int j = 0; j < lengthArray; j++) {
-                System.out.print(" " + array[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }
-
     private static boolean checkArray(int[] array) {
         int indexRight = array.length - 1;
         int rightSide = array[indexRight];
@@ -81,10 +74,7 @@ public class Arrays {
                 }
                 indexRight--;
                 rightSide += array[indexRight];
-                leftSide = 0;
-                for (int j = 0; j < indexRight; j++) {
-                    leftSide += array[j];
-                }
+                leftSide -= array[indexRight];
                 if (leftSide == rightSide) {
                     return true;
                 }

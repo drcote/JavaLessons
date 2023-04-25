@@ -2,6 +2,7 @@ package Lesson1;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Lesson1 {
     // 1. Создать пустой проект в IntelliJ IDEA и прописать метод main();
@@ -59,25 +60,19 @@ public class Lesson1 {
 
     //7. Написать метод, которому в качестве параметра передается строка, обозначающая имя, метод должен вывести в консоль сообщение «Привет, указанное_имя!»;
     private static void greetings(String name) {
-        if (name.length() > 0) {
-            System.out.println("Привет, " + name);
-        } else {
-            System.out.println("Имя не задано");
+        if (!Objects.isNull(name)) {
+            if (name.length() > 0) {
+                System.out.println("Привет, " + name);
+            } else {
+                System.out.println("Имя не задано");
+            }
         }
     }
 
     //8. * Написать метод, который определяет является ли год високосным, и выводит сообщение в консоль. Каждый 4-й год является високосным, кроме каждого 100-го, при этом каждый 400-й – високосный.
     private static void isLeapYear(int year) {
-        if (year % 4 == 0) {
-            if (year % 100 == 0) {
-                if (year % 400 == 0) {
-                    System.out.println("Год високосный");
-                } else {
-                    System.out.println("Год не високосный");
-                }
-            } else {
-                System.out.println("Год високосный");
-            }
+        if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
+            System.out.println("Год високосный");
         } else {
             System.out.println("Год не високосный");
         }
