@@ -1,24 +1,27 @@
 package Objects;
 
+import java.util.stream.Stream;
+
 public class Objects {
     public static void main(String[] args) {
         /*
          * Создать массив из 5 сотрудников;
          * С помощью цикла вывести информацию только о сотрудниках старше 40 лет;
          */
-        Employee[] employesArray = new Employee[5];
-        employesArray[0] = new Employee("Фомин Кондрат Александрович", "Программист", "fomin@fomin.ru", "7143181993", 3500, 45);
-        employesArray[1] = new Employee("Фёдоров Осип Павлович", "Менеджер", "fedorov@fedorov.ru", "778125360660", 4800, 39);
-        employesArray[2] = new Employee("Константинов Павел Пантелеймонович", "Продавец", "konstantinov@konstantinov.ru", "763118393124", 7890, 40);
-        employesArray[3] = new Employee("Мышкин Дмитрий Михайлович", "Врач", "mishkin@mishkin.ru", "7437376500", 5432, 28);
-        employesArray[4] = new Employee("Фёдоров Назарий Яковович", "Лифтёр", "fedorov1@fedorov.ru", "7470420052", 5098, 42);
+//        Employee[] employesArray = new Employee[5];
+//        employesArray[0] = new Employee("Фомин Кондрат Александрович", "Программист", "fomin@fomin.ru", "7143181993", 3500, 45);
+//        employesArray[1] = new Employee("Фёдоров Осип Павлович", "Менеджер", "fedorov@fedorov.ru", "778125360660", 4800, 39);
+//        employesArray[2] = new Employee("Константинов Павел Пантелеймонович", "Продавец", "konstantinov@konstantinov.ru", "763118393124", 7890, 40);
+//        employesArray[3] = new Employee("Мышкин Дмитрий Михайлович", "Врач", "mishkin@mishkin.ru", "7437376500", 5432, 28);
+//        employesArray[4] = new Employee("Фёдоров Назарий Яковович", "Лифтёр", "fedorov1@fedorov.ru", "7470420052", 5098, 42);
 
-        for (Employee employee : employesArray) {
-            if (employee.getAge() > 40) {
-                employee.presentation();
-            }
-        }
-
+//        for (Employee employee : employesArray) {
+//            if (employee.getAge() > 40) {
+//                System.out.println(employee.toString());
+//            }
+//        }
+        Stream<Employee> employesStream = Stream.of(new Employee("Фомин Кондрат Александрович", "Программист", "fomin@fomin.ru", "7143181993", 3500, 45), new Employee("Фёдоров Осип Павлович", "Менеджер", "fedorov@fedorov.ru", "778125360660", 4800, 39), new Employee("Константинов Павел Пантелеймонович", "Продавец", "konstantinov@konstantinov.ru", "763118393124", 7890, 40), new Employee("Мышкин Дмитрий Михайлович", "Врач", "mishkin@mishkin.ru", "7437376500", 5432, 28), new Employee("Фёдоров Назарий Яковович", "Лифтёр", "fedorov1@fedorov.ru", "7470420052", 5098, 42));
+        employesStream.filter(employee -> employee.getAge() > 40).forEach(employee -> System.out.println(employee.toString()));
         /*
          * 1. Создать классы Собака и Кот с наследованием от класса Животное.
          * 2. Животные могут выполнять действия: бежать, плыть, перепрыгивать препятствие. В качестве параметра каждому методу передается величина, означающая или длину препятствия (для бега и плавания), или высоту (для прыжков).
@@ -27,21 +30,21 @@ public class Objects {
          * 5. * Добавить животным разброс в ограничениях. То есть у одной собаки ограничение на бег может быть 400 м., у другой 600 м.
          */
 
-        Cat cat = new Cat();
+        Animal cat = new Cat();
         cat.run(200);
         cat.jump(2);
-        cat.swim();
+        cat.swim(2);
 
-        Dog dog =  new Dog();
+        Animal dog = new Dog();
         dog.run(400);
         dog.jump(0.7f);
         dog.swim(9);
 
-        Dog dog1 = new Dog(400);
+        Animal dog1 = new Dog(400);
         dog1.run(399);
         dog1.run(401);
 
-        Dog dog2 = new Dog(600);
+        Animal dog2 = new Dog(600);
         dog2.run(599);
         dog2.run(601);
     }

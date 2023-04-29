@@ -1,10 +1,11 @@
 package Objects;
 
 public class Dog extends Animal {
-    private int limitRun;
 
     public Dog() {
         this.limitRun = 500;
+        this.limitJump = 0.5f;
+        this.limitSwim = 10;
     }
 
     public Dog(int limitRun) {
@@ -18,10 +19,11 @@ public class Dog extends Animal {
 
     @Override
     public void jump(float height) {
-        System.out.println("jump: " + (height < 0.5));
+        System.out.println("jump: " + (height < this.limitJump));
     }
 
+    @Override
     public void swim(int distance) {
-        System.out.println("swim: " + (distance < 10));
+        System.out.println("swim: " + (distance < this.limitSwim));
     }
 }

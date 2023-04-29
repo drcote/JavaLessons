@@ -26,12 +26,8 @@ public class Employee {
         return age;
     }
 
-    public void presentation() {
-        System.out.println("fio: " + this.fio);
-        System.out.println("position: " + this.position);
-        System.out.println("email: " + this.email);
-        System.out.println("tel: " + this.tel);
-        System.out.println("salary: " + this.salary);
-        System.out.println("age: " + this.age);
+    @Override
+    public String toString() {
+        return "fio: " + this.fio + "position: " + this.position + "email: " + this.email + "tel: " + this.tel + "salary: " + this.salary + "age: " + this.age;
     }
 }
