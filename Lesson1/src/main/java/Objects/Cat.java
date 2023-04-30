@@ -10,7 +10,7 @@ public class Cat extends Animal {
 
     @Override
     public void run(int distance) {
-        System.out.println("run: " + (distance < 200));
+        System.out.println("run: " + (distance < this.limitRun));
     }
 
     @Override
@@ -20,7 +20,7 @@ public class Cat extends Animal {
 
     @Override
     public void jump(float height) {
-        System.out.println("jump: " + (height < 2));
+        System.out.println("jump: " + (height < this.limitJump));
     }
 
 }
