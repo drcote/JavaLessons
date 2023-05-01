@@ -40,11 +40,11 @@ public class Objects {
         dog.jump(0.7f);
         dog.swim(9);
 
-        Animal dog1 = new Dog(400);
+        Animal dog1 = new Dog(400, 0.5f, 10);
         dog1.run(399);
         dog1.run(401);
 
-        Animal dog2 = new Dog(600);
+        Animal dog2 = new Dog(600, 0.5f, 10);
         dog2.run(599);
         dog2.run(601);
     }

@@ -8,8 +8,11 @@ public class Dog extends Animal {
         this.limitSwim = 10;
     }
 
-    public Dog(int limitRun) {
+    public Dog(int limitRun, float limitJump, int limitSwim) {
+
         this.limitRun = limitRun;
+        this.limitSwim = limitSwim;
+        this.limitJump = limitJump;
     }
 
     @Override
