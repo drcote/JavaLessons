@@ -1,6 +1,15 @@
 package Objects;
 
 public class Dog extends Animal {
+    private static final String CONST = printAndGetStringConst();
+
+    static {
+        System.out.println("Child static code block");
+    }
+
+    {
+        System.out.println("Child non static code block");
+    }
 
     public Dog() {
         this.limitRun = 500;
@@ -13,6 +22,7 @@ public class Dog extends Animal {
         this.limitRun = limitRun;
         this.limitSwim = limitSwim;
         this.limitJump = limitJump;
+        System.out.println("Child constructor");
     }
 
     @Override
@@ -28,5 +38,10 @@ public class Dog extends Animal {
     @Override
     public void swim(int distance) {
         System.out.println("swim: " + (distance < this.limitSwim));
+    }
+
+    private static String printAndGetStringConst() {
+        System.out.println("CONST initialization");
+        return "CONST";
     }
 }

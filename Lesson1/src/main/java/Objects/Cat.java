@@ -22,5 +22,4 @@ public class Cat extends Animal {
     public void jump(float height) {
         System.out.println("jump: " + (height < this.limitJump));
     }
-
 }

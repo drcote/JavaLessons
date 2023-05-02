@@ -1,5 +1,6 @@
 package Objects;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class Objects {
@@ -47,5 +48,22 @@ public class Objects {
         Animal dog2 = new Dog(600, 0.5f, 10);
         dog2.run(599);
         dog2.run(601);
+
+
+        System.out.println(numberToStringConversion("00000000", (short) 12));
+    }
+
+    /*
+    Есть маска фиксированного размера из "00000000", как входной параметр подается число, от 1 до 10000
+   нужно дополнить число нулями слева до размера маски, например если на вход подали 123 должно получиться: "00000123"
+   имеет практическое применение при сохранении файлов с логами в виде 1.txt, 2.txt, ..., 10.txt, при сортировке по наименованию
+   файл 10.txt оказывается раньше чем 2.txt, добавление маски исправляет эту ситуацию
+    */
+    public static String numberToStringConversion(String mask, short number) {
+        if (number >= 1 && number <= 10000) {
+            String str = mask + number;
+            return str.substring(str.length() - mask.length());
+        }
+        return "Число в не заданных пределов";
     }
 }
