@@ -1,13 +1,26 @@
 package Objects;
-
+import lombok.EqualsAndHashCode;
 import java.util.Objects;
-
+@EqualsAndHashCode
 public abstract class Animal {
 
     private static final String PCONST = printAndGetStringConst();
     protected int limitRun;
     protected int limitSwim;
     protected float limitJump;
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Animal animal = (Animal) o;
+//        return limitRun == animal.limitRun && limitSwim == animal.limitSwim && Float.compare(animal.limitJump, limitJump) == 0;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(limitRun, limitSwim, limitJump);
+//    }
 
     static {
         System.out.println("Parent static code block");
@@ -26,19 +39,6 @@ public abstract class Animal {
     public abstract void swim(int distance);
 
     public abstract void jump(float height);
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Animal animal = (Animal) o;
-        return limitRun == animal.limitRun && limitSwim == animal.limitSwim && Float.compare(animal.limitJump, limitJump) == 0;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(limitRun, limitSwim, limitJump);
-    }
 
     private static String printAndGetStringConst() {
         System.out.println("Parent_CONST initialization");
