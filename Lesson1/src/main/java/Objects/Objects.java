@@ -51,6 +51,12 @@ public class Objects {
 
 
         System.out.println(numberToStringConversion("00000000", (short) 12));
+
+        Animal dog3 = new Dog(600, 0.5f, 10);
+
+        System.out.println(dog2.equals(dog3));
+        System.out.println(dog2.hashCode());
+        System.out.println(dog3.hashCode());
     }
 
     /*
