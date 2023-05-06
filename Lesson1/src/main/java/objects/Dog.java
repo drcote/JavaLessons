@@ -1,4 +1,4 @@
-package Objects;
+package objects;
 
 public class Dog extends Animal {
     private static final String CONST = printAndGetStringConst();
