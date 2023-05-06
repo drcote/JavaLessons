@@ -1,7 +1,6 @@
-package Lesson1;
+package lesson1;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.Objects;
 
 public class Lesson1 {

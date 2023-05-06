@@ -1,6 +1,6 @@
-package Objects;
+package objects;
 import lombok.EqualsAndHashCode;
-import java.util.Objects;
+
 @EqualsAndHashCode
 public abstract class Animal {
 
