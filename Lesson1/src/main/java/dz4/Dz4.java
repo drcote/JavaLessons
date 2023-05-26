@@ -57,7 +57,7 @@ public class Dz4 {
         */
         String content = "<p>Hello <code>Everybody</code> nice to meet u Hope to see u soon.</p>";
 
-        Pattern pattern1 = Pattern.compile("<[^>]+>");
+        Pattern pattern1 = Pattern.compile("<([a-zA-Z/]+)[^>]*>");
         Matcher matcher1 = pattern1.matcher(content);
 
         while (matcher1.find()) {
@@ -71,7 +71,7 @@ public class Dz4 {
         после.-и только 2, или 3 буквы(ru, com итд)
         */
         String input3 = "merezhin@gmail.com";
-        if (input3.matches("[\\w-.]+@[a-zA-Z0-9\\-]+.[a-zA-Z]{2,3}")) {
+        if (input3.matches("[\\w-.]+@[a-zA-Z0-9-]+.[a-zA-Z]{2,3}")) {
             System.out.println("Строка является email адресом");
         } else {
             System.out.println("Строка НЕ является email адресом");
@@ -83,11 +83,7 @@ public class Dz4 {
         Используйте класс Formatter для форматирования числа и задайте соответствующий шаблон для вывода в денежном формате.
         */
         double number = 1234567.89;
-        Formatter formatter = new Formatter();
-        Locale.setDefault(Locale.US);
-        formatter.format("$%,.2f", number);
-        String formattedNumber = formatter.toString();
-        System.out.println(formattedNumber);
+        System.out.println(String.format(Locale.US, "$%,.2f", number));
 
         /*
         7) Обычный внутренний класс
@@ -154,7 +150,7 @@ public class Dz4 {
 
         Random random = new Random();
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1000; i++) {
             int delay = random.nextInt(1000);
             try {
                 Thread.sleep(delay);
