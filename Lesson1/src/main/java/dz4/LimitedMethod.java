@@ -10,15 +10,22 @@ public class LimitedMethod implements Method {
         this.method = method;
         this.maxCallsPerMinute = maxCallsPerMinute;
     }
+
     @Override
     public void call() {
         long currentTime = System.currentTimeMillis();
-        if ((currentTime - lastCallTime < 60000) && (callCount >= maxCallsPerMinute)) {
-            System.out.println("Method is called too often, skipping call");
-            return;
+        if (callCount >= maxCallsPerMinute) {
+            if (currentTime - lastCallTime > 60000) {
+                lastCallTime = currentTime;
+                callCount = 1;
+                method.call();
+            } else {
+                System.out.println("Method is called too often, skipping call");
+            }
+        } else {
+            callCount++;
+            method.call();
         }
-        lastCallTime = currentTime;
-        callCount++;
-        method.call();
+
     }
 }
