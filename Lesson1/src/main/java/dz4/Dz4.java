@@ -1,6 +1,5 @@
 package dz4;
 
-import java.util.Formatter;
 import java.util.Locale;
 import java.util.Random;
 import java.util.regex.Matcher;
