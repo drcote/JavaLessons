@@ -57,7 +57,7 @@ public class Dz4 {
         */
         String content = "<p>Hello <code>Everybody</code> nice to meet u Hope to see u soon.</p>";
 
-        Pattern pattern1 = Pattern.compile("<([a-zA-Z/]+)[^>]*>");
+        Pattern pattern1 = Pattern.compile("</?[a-zA-Z]+>");
         Matcher matcher1 = pattern1.matcher(content);
 
         while (matcher1.find()) {
@@ -146,7 +146,7 @@ public class Dz4 {
         считается что он не дернулся. Использовать паттерн декоратор.
         */
         Method realMethod = new RealMethod();
-        Method limitedMethod = new LimitedMethod(realMethod, 10);
+        Method limitedMethod = new LimitedMethod(realMethod, 10, 60000);
 
         Random random = new Random();
 
